@@ -13,7 +13,12 @@ output "ipv4_address" {
   value       = "${digitalocean_kubernetes_cluster.module.ipv4_address}"
 }
 
-output "node_pool_id" {
-  description = " unique ID that can be used to identify and reference the node pool."
-  value       = "${digitalocean_kubernetes_cluster.module.node_pool.id}"
+output "kube_config" {
+  description = "The full contents of the Kubernetes cluster's kubeconfig file."
+  value       = "${digitalocean_kubernetes_cluster.module.kube_config.0.raw_config}"
 }
+
+#output "node_pool_id" {
+#  description = " unique ID that can be used to identify and reference the node pool."
+#  value       = "${digitalocean_kubernetes_cluster.module.node_pool.id}"
+#}
